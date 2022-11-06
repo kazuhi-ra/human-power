@@ -3,8 +3,8 @@ import { useRecoilState, useSetRecoilState } from 'recoil'
 
 import styles from './index.module.css'
 
-import { pastedState } from '../recoil/pasted'
-import { yaruzoInputState } from '../recoil/yaruzoInput'
+import { pastedState } from '../../recoil/pasted'
+import { yaruzoInputState } from '../../recoil/yaruzoInput'
 
 export const Textarea: FC = () => {
   const [yaruzoInput, setYaruzoInput] = useRecoilState<string>(yaruzoInputState)
