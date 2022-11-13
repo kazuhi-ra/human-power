@@ -3,9 +3,13 @@ import { useRecoilValue } from 'recoil'
 
 import styles from './index.module.css'
 
+import { checkedState } from '../../recoil/checked'
 import { pastedState } from '../../recoil/pasted'
 import { statefulCharState } from '../../recoil/statefulChar'
 import { yaruzoInputState } from '../../recoil/yaruzoInput'
+import { kanaToHira } from '../../utils/kana2Hira'
+import { Header } from '../Header'
+import { KanaToggle } from '../KanaToggle'
 import { Textarea } from '../TextArea'
 
 export const App: FC = () => {
@@ -21,7 +25,8 @@ export const App: FC = () => {
         <Disappointed />
       ) : (
         <>
-          <h1 className={styles.human_power}>人力やるぞ</h1>
+          <KanaToggle />
+          <Header />
           <div className={styles.sample}>
             {statefulChar.map((moji, index) => (
               <span
@@ -51,6 +56,11 @@ const TweetButton: FC<{ yaruzoInput: string; disabled: boolean }> = ({
   yaruzoInput,
   disabled,
 }) => {
+  const checked = useRecoilValue(checkedState)
+
+  const target = 'やるぞおおおおおォォッォオアァアアア！！！'
+  const text = checked ? kanaToHira(target) : target
+
   if (disabled) {
     return (
       <a
@@ -59,7 +69,7 @@ const TweetButton: FC<{ yaruzoInput: string; disabled: boolean }> = ({
         aria-disabled
         tabIndex={-1}
       >
-        やるぞおおおおおォォッォオアァアアア！！！
+        {text}
       </a>
     )
   }
