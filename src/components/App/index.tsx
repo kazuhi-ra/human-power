@@ -5,7 +5,7 @@ import styles from './index.module.css'
 
 import { checkedState } from '../../recoil/checked'
 import { pastedState } from '../../recoil/pasted'
-import { statefulCharState } from '../../recoil/statefulChar'
+import { statefulCharState } from '../../recoil/StatefulChar'
 import { yaruzoInputState } from '../../recoil/yaruzoInput'
 import { kanaToHira } from '../../utils/kana2Hira'
 import { Header } from '../Header'
