@@ -36,8 +36,8 @@ export const App: FC = () => {
                     moji.status === 'ok'
                       ? 'green'
                       : moji.status === 'ng'
-                      ? 'red'
-                      : 'gray',
+                        ? 'red'
+                        : 'gray',
                 }}
               >
                 {moji.char}
@@ -77,7 +77,7 @@ const TweetButton: FC<{ yaruzoInput: string; disabled: boolean }> = ({
   return (
     <a
       className={styles.tweetButton}
-      href={`http://twitter.com/share?url=https://kazuhi-ra.github.io/human-power&text=${yaruzoInput}`}
+      href={`https://twitter.com/intent/tweet?url=https://kazuhi-ra.github.io/human-power&text=${yaruzoInput}`}
       target="_blank"
       rel="noreferrer"
     >
